@@ -144,7 +144,11 @@ else:
 
 @st.cache_data
 def load_population_data():
-    df = pd.read_csv("D:\\jst\\202505_202505_연령별인구현황_월간.csv", encoding='euc-kr')
+
+    if platform.system() == 'Linux':
+        df = pd.read_csv("202505_202505_연령별인구현황_월간.csv")
+    else:
+        df = pd.read_csv("D:\\jst\\202505_202505_연령별인구현황_월간.csv", encoding='euc-kr')
 
     # 전라북도 전체(코드 5200000000) 제외
     df = df[~df["행정구역"].str.contains("5200000000")].copy()
