@@ -146,7 +146,7 @@ else:
 def load_population_data():
 
     if platform.system() == 'Linux':
-        df = pd.read_csv("202505_202505_연령별인구현황_월간.csv")
+        df = pd.read_csv("202505_202505_연령별인구현황_월간.csv", encoding="euc-kr")
     else:
         df = pd.read_csv("D:\\jst\\202505_202505_연령별인구현황_월간.csv", encoding='euc-kr')
 
