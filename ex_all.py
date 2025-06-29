@@ -16,6 +16,8 @@ plt.rcParams['axes.unicode_minus'] = False     # 마이너스 기호 깨짐 방�
 if platform.system() == 'Linux':
     fontname = './NanumGothic.ttf'
     font_files = fm.findSystemFonts(fontpaths=fontname)
+    fm.fontManager.addfont(fontname)
+    fm._load_fontmanager(try_read_cache=False)
     rc('font', family='NanumGothic')
 
 
@@ -30,7 +32,7 @@ def load_data():
         df = pd.read_csv("전라북도_병원정보.csv")
     else:
         df = pd.read_csv("D:\\jst\\전라북도_병원정보.csv")
-        
+
     # 제거할 열 목록
     drop_cols = [
         "암호화요양기호", "종별코드", "시도코드", "시군구코드", "우편번호", "주소",
